@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image</title>
+</head>
+<body>
+    <h1>Upload an Image for Detection</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="photo">
+        <input type="submit" value="Upload">
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

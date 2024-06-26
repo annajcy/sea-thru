@@ -1,0 +1,131 @@
+/*body {*/
+/*    font-family: Arial, sans-serif;*/
+/*    background-color: #f0f8ff;*/
+/*    color: #333;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 100vh;*/
+/*    margin: 0;*/
+/*}*/
+
+/*.container {*/
+/*    text-align: center;*/
+/*    padding: 20px;*/
+/*    border-radius: 10px;*/
+/*    background-color: #fff;*/
+/*    box-shadow: 0 4px 8px rgba(0,0,0,0.1);*/
+/*}*/
+
+/*h1 {*/
+/*    color: #4CAF50;*/
+/*}*/
+
+/*form {*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*input[type="file"] {*/
+/*    margin: 10px 0;*/
+/*    padding: 10px;*/
+/*    border: 2px solid #4CAF50;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*button {*/
+/*    padding: 10px 20px;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    background-color: #4CAF50;*/
+/*    color: white;*/
+/*    font-size: 16px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*button:hover {*/
+/*    background-color: #45a049;*/
+/*}*/
+
+/*.result {*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*.result img {*/
+/*    !*max-width: 100%;*!*/
+/*    !*height: auto;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    max-width: 100%;*/
+/*    max-height: 400px; !* 限制图片的最大高度 *!*/
+/*    width: auto; !* 保持宽高比 *!*/
+/*    height: auto; !* 保持宽高比 *!*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*h2 {*/
+/*    color: #333;*/
+/*}*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffe4e1;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ff69b4;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #ff69b4;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff69b4;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff1493;
+}
+
+.result {
+    margin-top: 20px;
+}
+
+.result img {
+    max-width: 100%;
+    max-height: 400px; /* 限制图片的最大高度 */
+    width: auto; /* 保持宽高比 */
+    height: auto; /* 保持宽高比 */
+    border-radius: 10px;
+}
+
+h2 {
+    color: #333;
+}

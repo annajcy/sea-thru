@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水下目标检测系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3e5f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+        }
+        h1 {
+            color: #6a1b9a;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            margin: 10px 0;
+            padding: 10px;
+            border: 2px solid #6a1b9a;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #e1bee7;
+            width: 80%;
+            max-width: 400px;
+        }
+        select {
+            margin: 10px 0;
+            padding: 10px;
+            border: 2px solid #6a1b9a;
+            border-radius: 5px;
+            background-color: #e1bee7;
+            width: 80%;
+            max-width: 400px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #6a1b9a;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 80%;
+            max-width: 400px;
+        }
+        button:hover {
+            background-color: #4a148c;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .result img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        h2 {
+            color: #4a148c;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>水下目标检测系统</h1>
+    <form id="uploadForm" action="/static" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required><br>
+        <button type="submit" id="uploadButton">上传文件</button>
+    </form>
+    <form id="detectForm" action="/detect" method="post" style="display: none;">
+        <select name="model" required>
+            <option value="yolov5s">yolov5s</option>
+            <option value="yolov5s_mod">yolov5s_mod</option>
+            <option value="yolov5s_biFPN_add">yolov5s_biFPN_add</option>
+            <option value="yolov5s_biFPN_concat">yolov5s_biFPN_concat</option>
+        </select><br>
+        <input type="hidden" name="filename" id="hiddenFilename">
+        <button type="submit" id="detectButton">开始检测</button>
+    </form>
+    {% if filename %}
+    <div class="result">
+        <h2>检测结果</h2>
+        <img src="{{ url_for('static', filename='uploads/' ~ filename) }}" alt="检测图片">
+    </div>
+    {% endif %}
+</div>
+<script>
+    document.getElementById('uploadForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        fetch('/', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('detectForm').style.display = 'block';
+                    document.getElementById('hiddenFilename').value = data.filename;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+</body>
+</html>

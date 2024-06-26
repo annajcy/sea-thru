@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detection Result</title>
+</head>
+<body>
+    <h1>Detection Result</h1>
+    <img src="{{ url_for('static', filename='detections/' + detected_image) }}" alt="Detected Image">
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
